@@ -15,6 +15,8 @@ class Inauguration < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/in --version")
+    # HEAD builds report Homebrew version "HEAD-<sha>" but the crate's Cargo version.
+    expected = build.head? ? /^in \d+\.\d+\.\d+/ : version.to_s
+    assert_match expected, shell_output("#{bin}/in --version")
   end
 end
