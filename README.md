@@ -17,7 +17,7 @@ brew tap semitechnological/tap
 
 ### inauguration
 
-For installs pulled from GitHub releases, **[wax](https://github.com/semitechnological/wax)** is usually faster than cloning formula sources with Homebrew:
+For installs pulled from GitHub releases, **[wax](https://github.com/plyght/wax)** is usually faster than cloning formula sources with Homebrew:
 
 ```sh
 wax tap semitechnological/tap
