@@ -1,8 +1,10 @@
 class Inauguration < Formula
-  desc "Fast Swift developer toolchain pipeline CLI"
-  homepage "https://github.com/semitechnological/inauguration"
+  desc "Capability-aware polyglot compiler and orchestration language CLI"
+  homepage "https://github.com/tschk/inauguration"
+  url "https://github.com/tschk/inauguration/archive/refs/tags/v0.9.11.tar.gz"
+  sha256 "157ec8b2a1f41d0909639b8dd466fc6b4e85443f832176c2662463d288b912aa"
   license "MPL-2.0"
-  head "https://github.com/semitechnological/inauguration.git", branch: "master"
+  head "https://github.com/tschk/inauguration.git", branch: "main"
 
   depends_on "rust" => :build
 
@@ -13,6 +15,6 @@ class Inauguration < Formula
   end
 
   test do
-    assert_match "inauguration", shell_output("#{bin}/in --help")
+    assert_match version.to_s, shell_output("#{bin}/in --version")
   end
 end
