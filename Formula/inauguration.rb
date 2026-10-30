@@ -1,8 +1,8 @@
 class Inauguration < Formula
   desc "Capability-aware polyglot compiler and orchestration language CLI"
   homepage "https://github.com/tschk/inauguration"
-  url "https://github.com/tschk/inauguration/archive/refs/tags/v0.9.11.tar.gz"
-  sha256 "157ec8b2a1f41d0909639b8dd466fc6b4e85443f832176c2662463d288b912aa"
+  url "https://github.com/tschk/inauguration/archive/refs/tags/v0.9.322.tar.gz"
+  sha256 "26dba9ddf57ada64ce6025d3d44725fcf7db0834b84b0e08171304db63593fee"
   license "MPL-2.0"
   head "https://github.com/tschk/inauguration.git", branch: "main"
 
