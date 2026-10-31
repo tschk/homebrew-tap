@@ -1,20 +1,22 @@
-# Installs from the tagged source archive. Pre-built release binaries are also
-# published on GitHub for `wax self-update` / tooling that prefers artifacts.
+# Installs upstream wax from its tagged source archive. Upstream also publishes
+# pre-built release binaries for `wax self-update`.
 class Wax < Formula
   desc "Fast Homebrew-compatible package manager"
-  homepage "https://github.com/semitechnological/wax"
-  url "https://github.com/semitechnological/wax/archive/refs/tags/v0.17.7.tar.gz"
-  sha256 "6cb9f132aaed90c2ffe2946a85de1edccb4b5f762ed1c84cfabd6cb21ac22960"
+  homepage "https://github.com/plyght/wax"
+  url "https://github.com/plyght/wax/archive/refs/tags/v0.20.31.tar.gz"
+  sha256 "369d0f191520037fdfc7e6fdc89ee76c57728f9f8bcf7d4739bbf3ac42a46e10"
   license "MIT"
-  head "https://github.com/semitechnological/wax.git", branch: "master"
+  head "https://github.com/plyght/wax.git", branch: "master"
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
-    assert_match "wax", shell_output("#{bin}/wax --version")
+    # HEAD builds report Homebrew version "HEAD-<sha>" but the crate's Cargo version.
+    expected = build.head? ? /^wax \d+\.\d+\.\d+/ : version.to_s
+    assert_match expected, shell_output("#{bin}/wax --version")
   end
 end
